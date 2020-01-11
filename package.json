@@ -1,0 +1,19 @@
+{
+  "name": "todo_server",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
+  },
+  "engines": {
+    "node": "12.14.0"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "connect": "^3.7.0",
+    "connect-gzip-static": "^2.1.1"
+  }
+}
