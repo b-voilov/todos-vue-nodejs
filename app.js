@@ -1,6 +1,6 @@
 var gzipStatic = require('connect-gzip-static');
 var experess = require('express');
-var dbManager = require('db.js').dbManager;
+var dbManager = require('./db.js').dbManager;
 
 var db = new dbManager('db.json');
 var app = experess();
