@@ -1,9 +1,13 @@
 var gzipStatic = require('connect-gzip-static');
-var connect = require('connect');
-var http = require('http');
-var oneDay = 86400000;
+var experess = require('express');
+var dbManager = require('db.js').dbManager;
 
-var app = connect()
-    .use(gzipStatic(__dirname + '/dist'));
+var db = new dbManager('db.json');
+var app = experess();
+app.use(gzipStatic(__dirname + '/dist'));
 
-http.createServer(app).listen(process.env.PORT || 4000);
+
+
+app.listen(process.env.PORT || 4000);
+/* sudo kill -9 `sudo lsof -t -i:4000`
+ */
