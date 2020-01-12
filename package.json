@@ -14,6 +14,7 @@
   "license": "ISC",
   "dependencies": {
     "connect": "^3.7.0",
-    "connect-gzip-static": "^2.1.1"
+    "connect-gzip-static": "^2.1.1",
+    "express": "^4.17.1"
   }
 }
