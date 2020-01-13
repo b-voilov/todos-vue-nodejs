@@ -1,18 +1,19 @@
 var fs = require('fs');
 
 module.exports = {
-    dbManager:function(dbName){
-        this.dbName=dbName;
+    dbManager:function(){
+        this.dbName='';
         this.initDB=(dbName)=>{
             try{
                 this.db = JSON.parse(fs.readFileSync(dbName));
+                this.dbName = dbName;
             } catch (error) {
                 console.log('Error initializing db ' + error);
             }
         };
-        this.db = this.initDB(dbName)
+        this.db = {};
         this.test = () => {
-            console.log(this.db);
+            console.log(JSON.stringify(this.db));
         };
         this.save = () => {
             fs.writeFile(this.dbName, JSON.stringify(this.db), (err) => {
@@ -41,14 +42,10 @@ module.exports = {
             }
         };
         this.addDocuments = (collectionName,documents, needSave = false) => {
-            try {
-                this.db[collectionName].push(documents);
-                if(needSave){
-                    this.save();
-                }
-            } catch (error) {
-                console.log('Error adding documents ' + error);
-            }
+            this.db[collectionName].push(documents);
+            if(needSave){
+                this.save();
+            } 
         };
         this.removeDocuments = (collectionName,filterLeaving, filterRemoving, needSave = false) => {
             try {
