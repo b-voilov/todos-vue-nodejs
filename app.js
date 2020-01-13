@@ -58,6 +58,7 @@ app.post('/getAllTodos', (req, res) => {
 
 app.post('/saveTodos', (req, res) => {
     try {
+        console.log(req.body);
         const ip  = getIp(req);
         if(users[ip]['jwt'] === req.body.jwt){
             users[ip]['user']['todos'] = req.body.todos;
