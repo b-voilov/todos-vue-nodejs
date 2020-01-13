@@ -24,9 +24,9 @@ app.use(function(req, res, next) {
 app.post('/register',(req,res)=>{
     try{
         db.addDocuments('users',{'name':req.body.name, 'password':req.body.password})
-        res.send({'status':200})
+        res.status(200).send('success');
     } catch(error){
-        res.send({'status':400})
+        res.status(400).send('error')
     }
 })
 
@@ -35,11 +35,11 @@ app.post('/authorize',(req,res)=>{
         const user = db.getDocuments('users').find(user=>user.name == req.body.name);
         if(user["password"] == req.body.password){
             const hash = hashFunction(JSON.stringify(user));
-            res.send({'jwt':hash});
+            res.status(200).send({'jwt':hash});
             users[getIp(req)] = {'jwt':hash,'user':user};
         }
     } catch (error){
-        res.send({'status':400})
+        res.status(400).send();
     }
 })
 
@@ -47,12 +47,12 @@ app.post('/getAllTodos', (req, res) => {
     try { 
         const ip = getIp(req);
         if(users[ip]['jwt'] === req.body.jwt){
-            res.send(users[ip]['user']['todos']);
+            res.status(200).send(users[ip]['user']['todos']);
         }else{
-            res.send({'status':400}); 
+            res.status(400).send("error");
         }
     } catch (error) {
-        res.send({'status':400});
+        res.status(400).send("error");
     }
 })
 
@@ -62,11 +62,11 @@ app.post('/saveTodos', (req, res) => {
         if(users[ip]['jwt'] === req.body.jwt){
             users[ip]['user']['todos'] = req.body.todos;
             db.save();
-            res.send({'status':200})
+            res.status(200).send("success");
         }
     } catch (error) {
         console.log('save todos endpoint error '+error);
-        res.send({'status':400});
+        res.status(400).send("error");
     }
 })
 
