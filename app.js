@@ -24,7 +24,7 @@ app.use(function(req, res, next) {
 app.post('/register',(req,res)=>{
     try{
         const user = db.getDocuments('users').find(user=>user.name == req.body.name);
-        if(user == null){
+        if(user != null){
             res.status(400).send('already exist')
         }else{
             db.addDocuments('users',{name:req.body.name, password:req.body.password, todos:[{name:"first todo",description:"some text here",completed:false,expirationDate:"1/1/2020, 1:34:47 AM",key:"1578106446593"}]})
