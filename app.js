@@ -23,8 +23,15 @@ app.use(function(req, res, next) {
 
 app.post('/register',(req,res)=>{
     try{
-        db.addDocuments('users',{'name':req.body.name, 'password':req.body.password})
-        res.status(200).send('success');
+        const user = db.getDocuments('users').find(user=>user.name == req.body.name);
+        if(user == null){
+            res.status(400).send('already exist')
+        }else{
+            db.addDocuments('users',{name:req.body.name, password:req.body.password, todos:[{name:"first todo",description:"some text here",completed:false,expirationDate:"1/1/2020, 1:34:47 AM",key:"1578106446593"}]})
+            db.save();
+            res.status(200).send('success');
+        }
+        
     } catch(error){
         res.status(400).send('error')
     }
@@ -54,6 +61,10 @@ app.post('/getAllTodos', (req, res) => {
     } catch (error) {
         res.status(400).send("error");
     }
+})
+
+app.get('*', (req, res) => {
+    res.redirect('/');
 })
 
 app.post('/saveTodos', (req, res) => {
