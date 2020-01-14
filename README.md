@@ -1,6 +1,6 @@
 # todos-vue-nodejs
-petproject
-<h1>This on heroku https://todos-vue-nodejs.herokuapp.com/authorization</h1>
+<h1 style="color:#00B184">petproject</h1>
+<h1>This on heroku https://todos-vue-nodejs.herokuapp.com//h1>
 <h2>Used technologies</h2>
 <h3>At frontend</h3>
 <ul>
