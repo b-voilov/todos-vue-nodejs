@@ -40,8 +40,8 @@
   </li>
   <li>
     <h3>With router.</h3>
-  </br>There are 2 main layouts: "authorization" and "working with todos"
-    <br/> and user can switch between them.
+    <div>There are 2 main layouts: "authorization" and "working with todos"
+      <br/> and user can switch between them.</div>
   </li>
   <li>
     <h3>Other</h3>
