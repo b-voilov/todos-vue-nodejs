@@ -1,5 +1,5 @@
 # todos-vue-nodejs
-<h1>Vuejs petproject</h1>
+<h1>Vuejs 2 petproject</h1>
 <h1>This on heroku https://todos-vue-nodejs.herokuapp.com/</h1>
 <h2>Used technologies</h2>
 <h3>At frontend</h3>
