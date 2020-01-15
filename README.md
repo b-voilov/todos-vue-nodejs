@@ -39,8 +39,9 @@
     </ul>
   </li>
   <li>
-    <h3>With router.There are 2 main layouts: "authorization" and "working with todos"
-    <br/> and user can switch between them </h3>
+    <h3>With router.</h3>
+  </br>There are 2 main layouts: "authorization" and "working with todos"
+    <br/> and user can switch between them.
   </li>
   <li>
     <h3>Other</h3>
