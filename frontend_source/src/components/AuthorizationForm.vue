@@ -5,7 +5,7 @@
                     v-model="login"
                     outlined
                     label="login"
-                    type="email"
+
             />
             <v-text-field
                     v-model="password"

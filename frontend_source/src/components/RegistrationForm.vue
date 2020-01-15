@@ -5,7 +5,7 @@
                     v-model="login"
                     outlined
                     label="login"
-                    type="email"
+                    :rules="[emailRule]"
             />
             <v-form ref="passwordForm">
                 <v-text-field
@@ -87,6 +87,13 @@
                 }else{
                     this.passwordsMatch = false;
                     return 'passwords do not match';
+                }
+            },
+            emailRule(v){
+                if(!emailIsValid(v)){
+                    return 'email should be entered';
+                }else{
+                    return true;
                 }
             },
             validatePasswordForm(){
